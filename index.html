@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SMS Pro Marketing</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#0b1120;
+    color:#fff;
+}
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
+
+header{
+    min-height:100vh;
+    background:linear-gradient(135deg,#020617,#0f172a,#111827);
+    display:flex;
+    align-items:center;
+    position:relative;
+    overflow:hidden;
+}
+
+header::before{
+    content:'';
+    width:500px;
+    height:500px;
+    background:#25d366;
+    position:absolute;
+    border-radius:50%;
+    filter:blur(180px);
+    top:-200px;
+    right:-150px;
+    opacity:0.4;
+}
+
+.hero{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+    align-items:center;
+    z-index:2;
+}
+
+.hero-text h1{
+    font-size:4rem;
+    line-height:1.1;
+    margin-bottom:25px;
+}
+
+.hero-text h1 span{
+    color:#25d366;
+}
+
+.hero-text p{
+    color:#cbd5e1;
+    font-size:1.2rem;
+    margin-bottom:35px;
+    line-height:1.8;
+}
+
+.btn{
+    display:inline-block;
+    background:#25d366;
+    color:#fff;
+    text-decoration:none;
+    padding:18px 35px;
+    border-radius:12px;
+    font-size:1rem;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+    background:#1db954;
+}
+
+.hero-card{
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.1);
+    backdrop-filter:blur(10px);
+    padding:40px;
+    border-radius:25px;
+    box-shadow:0 20px 40px rgba(0,0,0,0.3);
+}
+
+.hero-card h2{
+    margin-bottom:25px;
+    color:#25d366;
+}
+
+.hero-card .item{
+    background:#111827;
+    padding:18px;
+    border-radius:12px;
+    margin-bottom:15px;
+}
+
+section{
+    padding:100px 0;
+}
+
+.title{
+    text-align:center;
+    margin-bottom:70px;
+}
+
+.title h2{
+    font-size:3rem;
+    margin-bottom:15px;
+    color:#25d366;
+}
+
+.title p{
+    color:#94a3b8;
+    font-size:1.1rem;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:#111827;
+    padding:35px;
+    border-radius:20px;
+    transition:0.3s;
+    border:1px solid rgba(255,255,255,0.05);
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    border-color:#25d366;
+}
+
+.card h3{
+    margin:20px 0;
+    color:#25d366;
+}
+
+.card p{
+    color:#cbd5e1;
+    line-height:1.7;
+}
+
+.icon{
+    font-size:50px;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
+
+.stat{
+    background:#111827;
+    padding:40px;
+    border-radius:20px;
+    text-align:center;
+}
+
+.stat h3{
+    font-size:3rem;
+    color:#25d366;
+    margin-bottom:10px;
+}
+
+.pricing{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:30px;
+}
+
+.plan{
+    background:#111827;
+    padding:45px;
+    border-radius:25px;
+    text-align:center;
+    border:1px solid rgba(255,255,255,0.08);
+}
+
+.plan.featured{
+    background:#25d366;
+    transform:scale(1.05);
+}
+
+.plan.featured h3,
+.plan.featured p,
+.plan.featured li,
+.plan.featured .price{
+    color:#fff;
+}
+
+.plan h3{
+    font-size:2rem;
+    margin-bottom:15px;
+    color:#25d366;
+}
+
+.price{
+    font-size:3rem;
+    margin:25px 0;
+    color:#fff;
+    font-weight:bold;
+}
+
+.plan ul{
+    list-style:none;
+    margin-bottom:30px;
+}
+
+.plan ul li{
+    margin:15px 0;
+    color:#cbd5e1;
+}
+
+.cta{
+    background:linear-gradient(135deg,#25d366,#128c7e);
+    border-radius:30px;
+    text-align:center;
+    padding:80px 30px;
+}
+
+.cta h2{
+    font-size:3rem;
+    margin-bottom:20px;
+}
+
+.cta p{
+    font-size:1.2rem;
+    margin-bottom:35px;
+}
+
+footer{
+    padding:40px 0;
+    text-align:center;
+    color:#64748b;
+}
+
+@media(max-width:900px){
+
+.hero{
+    grid-template-columns:1fr;
+}
+
+.hero-text h1{
+    font-size:2.8rem;
+}
+
+.title h2,
+.cta h2{
+    font-size:2.2rem;
+}
+
+.plan.featured{
+    transform:none;
+}
+
+}
+</style>
+</head>
+<body>
+
+<header>
+<div class="container hero">
+
+<div class="hero-text">
+<h1>Disparo de <span>SMS</span> que vende no WhatsApp</h1>
+
+<p>
+Automatize mensagens, atraia clientes e converta vendas em poucos minutos usando nossa plataforma completa integrada ao WhatsApp.
+</p>
+
+<a href="https://wa.me/5511974914955" class="btn">
+CHAMAR NO WHATSAPP
+</a>
+</div>
+
+<div class="hero-card">
+<h2>Recursos Premium</h2>
+
+<div class="item">🚀 Disparo em massa ilimitado</div>
+<div class="item">📲 Link direto para WhatsApp</div>
+<div class="item">📊 Painel com relatórios</div>
+<div class="item">🤖 Automação inteligente</div>
+<div class="item">💬 Atendimento rápido</div>
+<div class="item">🔒 Plataforma segura</div>
+
+</div>
+
+</div>
+</header>
+
+<section>
+<div class="container">
+
+<div class="title">
+<h2>Por que escolher nossa plataforma?</h2>
+<p>Tudo o que você precisa para aumentar suas vendas online.</p>
+</div>
+
+<div class="grid">
+
+<div class="card">
+<div class="icon">📩</div>
+<h3>Envio Instantâneo</h3>
+<p>
+Envie milhares de SMS rapidamente com alta taxa de entrega.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">💬</div>
+<h3>Integração WhatsApp</h3>
+<p>
+O cliente clica no SMS e vai direto para seu WhatsApp.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">📈</div>
+<h3>Mais Conversão</h3>
+<p>
+Transforme mensagens em clientes e aumente o faturamento.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">⚡</div>
+<h3>Alta Performance</h3>
+<p>
+Sistema rápido, moderno e otimizado para vendas em escala.
+</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<section>
+<div class="container">
+
+<div class="title">
+<h2>Números da Plataforma</h2>
+</div>
+
+<div class="stats">
+
+<div class="stat">
+<h3>+98%</h3>
+<p>Taxa de entrega</p>
+</div>
+
+<div class="stat">
+<h3>24h</h3>
+<p>Suporte rápido</p>
+</div>
+
+<div class="stat">
+<h3>+50k</h3>
+<p>Mensagens enviadas</p>
+</div>
+
+<div class="stat">
+<h3>+300%</h3>
+<p>Aumento de conversão</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<section>
+<div class="container">
+
+<div class="title">
+<h2>Planos</h2>
+<p>Escolha o melhor plano para seu negócio.</p>
+</div>
+
+<div class="pricing">
+
+<div class="plan">
+<h3>Starter</h3>
+<div class="price">R$97</div>
+<ul>
+<li>5.000 SMS</li>
+<li>Integração WhatsApp</li>
+<li>Suporte básico</li>
+<li>Painel completo</li>
+</ul>
+<a href="https://wa.me/5511974914955" class="btn">COMEÇAR</a>
+</div>
+
+<div class="plan featured">
+<h3>Professional</h3>
+<div class="price">R$197</div>
+<ul>
+<li>20.000 SMS</li>
+<li>Automação avançada</li>
+<li>Relatórios premium</li>
+<li>Suporte prioritário</li>
+</ul>
+<a href="https://wa.me/5511974914955" class="btn" style="background:#fff;color:#25d366;">
+QUERO AGORA
+</a>
+</div>
+
+<div class="plan">
+<h3>Enterprise</h3>
+<div class="price">Custom</div>
+<ul>
+<li>SMS ilimitado</li>
+<li>API completa</li>
+<li>Servidor dedicado</li>
+<li>Gerente exclusivo</li>
+</ul>
+<a href="https://wa.me/5511974914955" class="btn">FALAR COMERCIAL</a>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<section>
+<div class="container">
+
+<div class="cta">
+<h2>Comece Hoje Mesmo</h2>
+<p>
+Transforme campanhas de SMS em vendas automáticas usando WhatsApp.
+</p>
+
+<a href="https://wa.me/5511974914955" class="btn" style="background:#fff;color:#25d366;">
+FALAR NO WHATSAPP
+</a>
+
+</div>
+
+</div>
+</section>
+
+<footer>
+<p>
+© 2026 SMS Pro Marketing - Todos os direitos reservados.
+</p>
+</footer>
+
+</body>
+</html>
